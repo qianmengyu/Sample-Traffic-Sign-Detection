@@ -1,4 +1,7 @@
 We have train.p valid.p and test.p
+
+Download at: https://s3-us-west-1.amazonaws.com/udacity-selfdrivingcar/traffic-signs-data.zip
+
 Data is (32, 32, 3) images and their labels. Label is from 1 to 42, represent different sign.
 
 - train.p
