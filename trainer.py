@@ -9,7 +9,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
-
+from tqdm import tqdm
 
 import SignDataset
 import networks
@@ -35,9 +35,18 @@ class Trainer:
         self.num_classes = self.opt.num_classes
         if(self.opt.model == "LeNet"):
             self.model = networks.LeNet(self.num_classes)
+        elif(self.opt.model == "AlexNet"):
+            self.model = networks.AlexNet(self.num_classes)
+        elif(self.opt.model == "VGG11" or self.opt.model == "VGG13" or self.opt.model == "VGG16" or self.opt.model == "VGG19"):
+            self.model = networks.VGG(self.opt.model, self.num_classes)
+        elif(self.opt.model == "ResNet"):
+            self.model = networks.ResNet([2, 2, 2, 2],self.num_classes)
         else :
             # default model
             self.model = networks.LeNet(self.num_classes)
+        print("-----")
+        print(self.model)
+        print("-----")
         
         # other params
         self.num_epochs = self.opt.num_epochs
@@ -49,7 +58,7 @@ class Trainer:
         optimizer = optim.SGD(self.model.parameters(), lr=0.001, momentum=0.9)
         
         print('Training Begin!')
-        for epoch in range(self.num_epochs):
+        for epoch in tqdm(range(self.num_epochs)):
             self.model.train()  # 设置为训练模式
             for inputs, labels in self.train_loader:
                 optimizer.zero_grad()

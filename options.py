@@ -19,7 +19,7 @@ class SignDetectOptions:
         self.parser.add_argument("--model",
                                  type=str,
                                  help="the name of the folder to save the model in",
-                                 choices=["LeNet", "AlexNet", "VGG", "ResNet"],
+                                 choices=["LeNet", "AlexNet", "VGG11", "VGG13", "VGG16", "VGG19", "ResNet"],
                                  default="LeNet")
         self.parser.add_argument("--batch_size",
                                  type=int,
