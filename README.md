@@ -19,3 +19,17 @@ use other network by --model
 ```
 python train.py --model xxx
 ```
+
+## Results
+
+- LeNet  
+![alt text](config/image.png)
+
+- AlexNet  
+![alt text](config/image-2.png)
+
+- VGG11  
+![alt text](config/image-3.png)
+
+- ResNet  
+![alt text](config/image-1.png)
